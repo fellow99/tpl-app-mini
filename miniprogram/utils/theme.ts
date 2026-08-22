@@ -20,7 +20,7 @@ export type ResolvedTheme = 'light' | 'dark'
 
 const THEME_MODES: ThemeMode[] = ['light', 'dark', 'system']
 
-/** 生效主题下导航栏配色（与 var.md §7 及 theme.json 对齐） */
+/** 生效主题下导航栏配色（与 var.md §6 及 theme.json 对齐） */
 const THEME_PALETTE: Record<
   ResolvedTheme,
   {

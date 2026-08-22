@@ -60,7 +60,7 @@
 ```
 miniprogram/i18n/
 ├── zh-CN.ts     # export default { "app.name": "tpl-workspace", ... }
-├── en-US.ts     # export default { "app.name": "Day Day Up", ... }
+├── en-US.ts     # export default { "app.name": "tpl-workspace", ... }
 └── zh-TW.ts     # export default { "app.name": "tpl-workspace", ... }
 ```
 

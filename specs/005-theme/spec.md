@@ -67,7 +67,7 @@
 
 | ID | 需求 | RFC 2119 |
 |:---|------|:--------:|
-| FR-005-101 | `app.wxss` MUST 以 `page`（及 `.theme-light`）选择器定义亮色（default）CSS 变量，以 `@media (prefers-color-scheme: dark)` 与 `.theme-dark` 定义暗色（dark）变量，两套取值 MUST 对齐父工程 `var.md` §3~§7 | MUST |
+| FR-005-101 | `app.wxss` MUST 以 `page`（及 `.theme-light`）选择器定义亮色（default）CSS 变量，以 `@media (prefers-color-scheme: dark)` 与 `.theme-dark` 定义暗色（dark）变量，两套取值 MUST 对齐父工程 `var.md` §3~§6 | MUST |
 | FR-005-102 | 品牌主色 MUST 全站统一为 `var(--color-primary)`（`#3B5998`，暗色 `#5B7DB1`）；微信绿 MUST 收敛为 `--color-wechat`（`#07C160`）且仅用于微信登录按钮 | MUST |
 | FR-005-103 | 各页面 WXSS 中硬编码颜色 MUST 迁移为 CSS 变量（`--color-primary` / `--color-bg` / `--color-surface` / `--color-text` / `--color-text-secondary` / `--color-border` / `--color-disabled` / `--color-danger` 等），不再散落字面色值 | MUST |
 
@@ -165,7 +165,7 @@
 | 依赖 | 说明 |
 |------|------|
 | 父工程 `specs/005-theme/var.md` | 颜色单一事实源（角色命名 + default/dark 两套取值） |
-| 父工程 `DESIGN.md` | 「破茧」设计系统色板 |
+| 父工程 `DESIGN.md` | 设计系统色板 |
 | 微信基础库 ≥ 2.11.0 | `darkmode` / `theme.json` / `wx.onThemeChange` / `getSystemInfoSync().theme` 支持 |
 
 ### 7.2 内部模块
@@ -184,7 +184,7 @@
 |------|------|------|
 | 三态主题 | Tri-state Theme | `light` / `dark` / `system` 三种偏好状态 |
 | 生效主题 | Resolved Theme | `system` 解析后最终呈现的 `light` / `dark` |
-| 皮肤 | Skin | 「破茧亮色」与「护眼暗色」两套固定取值集合 |
+| 皮肤 | Skin | 「亮色」与「护眼暗色」两套固定取值集合 |
 | CSS 变量 | CSS Custom Property | WXSS 中 `--color-*`，本端主题切换的落点 |
 | darkmode | DarkMode | 微信小程序深色模式开关，`app.json` 配置项 |
 | 联动 | Linking | 主题变化时同步更新 tabBar / 导航栏等系统 UI |

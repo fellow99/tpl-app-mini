@@ -374,4 +374,3 @@ wx.onThemeChange(() => applyTheme())
 | 手动强制态下 `page` 元素背景无法挂 class | 低 | 根 `scroll-view` 挂 class 且自身 `background: var(--color-bg)`，填充视口 |
 | 输入框占位符在暗色下对比度偏低 | 低 | 默认占位色；后续可用 `placeholder-class` + 变量优化 |
 | 强制态切换后未回到某页面的旧 class 残留 | 低 | 每页 `onShow` 统一 `refreshTheme()` |
-| 暗色语义色（掌握度/错因/学科）未明度微调 | 低 | 本轮不涉及这些语义色的页面，var.md §7 预留实现时定稿 |
