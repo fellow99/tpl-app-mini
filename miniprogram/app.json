@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/register/register",
+    "pages/profile/profile",
+    "pages/profile-edit/profile-edit",
+    "pages/change-password/change-password",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "navigationBarTextStyle": "@navTxtStyle",
+    "navigationStyle": "custom",
+    "backgroundColor": "@bgColor",
+    "backgroundTextStyle": "@bgTxtStyle"
+  },
+  "style": "v2",
+  "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true,
+      "tagNameStyleIsolation": "legacy",
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "darkmode": true,
+  "themeLocation": "theme.json"
+}

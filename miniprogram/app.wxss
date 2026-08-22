@@ -1,0 +1,78 @@
+/**app.wxss**/
+/* 主题皮肤 CSS 变量（颜色单一事实源对齐父工程 specs/005-theme/var.md，手工映射）
+ * - 亮色（default）定义在 page；.theme-light 供「手动强制亮色」时覆盖系统深色
+ * - 暗色（dark）定义在 @media (prefers-color-scheme: dark)（跟随系统）与 .theme-dark（手动强制暗色）
+ * - 扩展色 --color-wechat 仅用于微信登录按钮（品牌绿固定）；--color-placeholder 为常量；--color-divider 随主题变化（暗色 #2E3033）
+ * - --color-primary-disabled 为靛青禁用态衍生色（var.md §6：基础色 + alpha 派生，本端取固定浅靛青）
+ */
+page,
+.theme-light {
+  /* 品牌色 */
+  --color-primary: #3B5998;
+  --color-accent: #E8923C;
+  --color-success: #4AA878;
+  --color-danger: #D94E3C;
+  /* 中性色 */
+  --color-bg: #F7F5F0;
+  --color-surface: #FFFFFF;
+  --color-text: #292522;
+  --color-text-secondary: #6E6A65;
+  --color-border: #D9D4CC;
+  --color-disabled: #EEECE6;
+  /* 扩展色 */
+  --color-wechat: #07C160;
+  --color-placeholder: #B0ADA8;
+  --color-divider: #F0ECE6;
+  /* 衍生色 */
+  --color-primary-disabled: #A9B7D4;
+}
+
+/* 系统深色（system 态跟随系统） */
+@media (prefers-color-scheme: dark) {
+  page {
+    --color-primary: #5B7DB1;
+    --color-accent: #E8923C;
+    --color-success: #7BC49A;
+    --color-danger: #E0705F;
+    --color-bg: #1A1C1E;
+    --color-surface: #26282B;
+    --color-text: #E8E4DE;
+    --color-text-secondary: #A8A29A;
+    --color-border: #3A3A38;
+    --color-disabled: #2E3033;
+    --color-divider: #2E3033;
+    --color-primary-disabled: #3A4A66;
+  }
+}
+
+/* 手动强制暗色（light/dark 三态中 dark，覆盖系统） */
+.theme-dark {
+  --color-primary: #5B7DB1;
+  --color-accent: #E8923C;
+  --color-success: #7BC49A;
+  --color-danger: #E0705F;
+  --color-bg: #1A1C1E;
+  --color-surface: #26282B;
+  --color-text: #E8E4DE;
+  --color-text-secondary: #A8A29A;
+  --color-border: #3A3A38;
+  --color-disabled: #2E3033;
+  --color-divider: #2E3033;
+  --color-primary-disabled: #3A4A66;
+}
+
+/* 页面基础背景与正文色随主题 */
+page {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}

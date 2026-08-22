@@ -1,0 +1,35 @@
+<navigation-bar title="{{navTitle}}" back="{{true}}" color="{{navColor}}" background="{{navBg}}"></navigation-bar>
+<scroll-view class="scrollarea {{themeClass}}" scroll-y type="list">
+  <view class="profile-container">
+
+    <!-- 用户信息卡片 -->
+    <view class="profile-card">
+      <view class="info-item">
+        <text class="info-label">{{nicknameLabel}}</text>
+        <text class="info-value">{{userInfo.nickName || '-'}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">{{phoneLabel}}</text>
+        <text class="info-value">{{maskedPhone}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">{{emailLabel}}</text>
+        <text class="info-value">{{userInfo.email || '-'}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">{{birthdayLabel}}</text>
+        <text class="info-value">{{userInfo.birthDate || '-'}}</text>
+      </view>
+    </view>
+
+    <!-- 操作列表 -->
+    <view class="action-list">
+      <view class="action-cell" bindtap="goEditProfile">{{editInfoText}}</view>
+      <view class="action-cell" bindtap="goChangePassword">{{changePasswordText}}</view>
+      <view class="action-cell" bindtap="handleChangeLanguage">{{languageCellText}}</view>
+      <view class="action-cell" bindtap="handleChangeTheme">{{themeCellText}}</view>
+      <view class="action-cell danger" bindtap="handleLogout">{{logoutText}}</view>
+    </view>
+
+  </view>
+</scroll-view>

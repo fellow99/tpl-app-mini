@@ -1,0 +1,163 @@
+/**profile.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+  background: var(--color-bg);
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.profile-card {
+  background: var(--color-surface);
+  border-radius: 24rpx;
+  padding: 40rpx 32rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.06);
+}
+
+.avatar-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 40rpx;
+  background: transparent;
+  line-height: normal;
+}
+
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background: var(--color-disabled);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid var(--color-divider);
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  width: 140rpx;
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+}
+
+.info-input {
+  flex: 1;
+  font-size: 30rpx;
+}
+
+.info-value {
+  flex: 1;
+  font-size: 30rpx;
+  color: var(--color-text);
+}
+
+.action-list {
+  margin-top: 40rpx;
+  background: var(--color-surface);
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.06);
+}
+
+.action-cell {
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: var(--color-text);
+  border-bottom: 1rpx solid var(--color-divider);
+}
+
+.action-cell:last-child {
+  border-bottom: none;
+}
+
+.action-cell.danger {
+  color: var(--color-danger);
+}
+
+/* 修改密码弹窗 */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 600rpx;
+  background: var(--color-surface);
+  border-radius: 24rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 32rpx;
+}
+
+.modal-input {
+  width: 100%;
+  height: 84rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  background: var(--color-disabled);
+  color: var(--color-text);
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  margin-bottom: 24rpx;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16rpx;
+}
+
+.modal-btn {
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  border-radius: 40rpx;
+}
+
+.modal-btn.cancel {
+  background: var(--color-disabled);
+  color: var(--color-text-secondary);
+}
+
+.modal-btn.confirm {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.modal-btn.confirm[disabled] {
+  background: var(--color-primary-disabled);
+}

@@ -1,0 +1,39 @@
+<navigation-bar title="{{navTitle}}" back="{{true}}" color="{{navColor}}" background="{{navBg}}"></navigation-bar>
+<scroll-view class="scrollarea {{themeClass}}" scroll-y type="list">
+  <view class="register-container">
+
+    <view class="form-item">
+      <input class="input" type="number" maxlength="11" placeholder="{{phonePlaceholder}}" value="{{phoneNumber}}" bindinput="onPhoneNumberInput" bindblur="onPhoneNumberBlur" />
+      <view wx:if="{{phoneNumberError}}" class="error-text">{{phoneNumberError}}</view>
+    </view>
+
+    <view class="form-item">
+      <input class="input" type="password" placeholder="{{passwordPlaceholder}}" value="{{password}}" bindinput="onPasswordInput" bindblur="onPasswordBlur" />
+      <view wx:if="{{passwordError}}" class="error-text">{{passwordError}}</view>
+    </view>
+
+    <view class="form-item">
+      <input class="input" type="password" placeholder="{{confirmPasswordPlaceholder}}" value="{{confirmPassword}}" bindinput="onConfirmPasswordInput" bindblur="onConfirmPasswordBlur" />
+      <view wx:if="{{confirmPasswordError}}" class="error-text">{{confirmPasswordError}}</view>
+    </view>
+
+    <view class="form-item captcha-row">
+      <input class="input" type="number" maxlength="6" placeholder="{{smsCodePlaceholder}}" value="{{smsCode}}" bindinput="onSmsCodeInput" />
+      <button class="sms-btn" bindtap="handleSendSms" disabled="{{smsCountdown > 0 || sendingSms}}">
+        {{smsCountdown > 0 ? smsCountdown + 's' : getCodeText}}
+      </button>
+    </view>
+
+    <view wx:if="{{captchaEnabled}}" class="form-item captcha-row">
+      <input class="input" placeholder="{{captchaPlaceholder}}" value="{{captchaInput}}" bindinput="onCaptchaInput" />
+      <view class="captcha-box" bindtap="onCaptchaTap">
+        <image wx:if="{{!captchaError && captchaImg}}" class="captcha-img" src="{{captchaImg}}" />
+        <view wx:else class="captcha-img captcha-placeholder">{{captchaError ? captchaRetry : captchaLoading}}</view>
+      </view>
+    </view>
+
+    <button class="submit-btn" bindtap="handleRegister" disabled="{{isLoading}}">{{submitText}}</button>
+
+    <view class="login-link" bindtap="goLogin">{{goLoginLink}}</view>
+  </view>
+</scroll-view>

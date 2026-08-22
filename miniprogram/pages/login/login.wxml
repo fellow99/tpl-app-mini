@@ -1,0 +1,62 @@
+<navigation-bar title="{{navTitle}}" back="{{false}}" color="{{navColor}}" background="{{navBg}}">
+  <view slot="left" class="lang-toggle" hover-class="theme-toggle-hover" bindtap="showLanguageSwitch" aria-role="button" aria-label="切换语言">🌐</view>
+  <view slot="left" class="theme-toggle" hover-class="theme-toggle-hover" bindtap="toggleTheme" aria-role="button" aria-label="切换主题">{{themeIcon}}</view>
+</navigation-bar>
+<scroll-view class="scrollarea {{themeClass}}" scroll-y type="list">
+  <view class="login-container">
+
+    <!-- tab 切换 -->
+    <view class="tab-switch">
+      <view class="tab {{loginType === 'password' ? 'active' : ''}}" bindtap="switchToPassword">{{tabPassword}}</view>
+      <view class="tab {{loginType === 'sms' ? 'active' : ''}}" bindtap="switchToSms">{{tabSms}}</view>
+    </view>
+
+    <!-- 密码登录表单 -->
+    <block wx:if="{{loginType === 'password'}}">
+      <view class="form-item">
+        <input class="input" type="number" maxlength="11" placeholder="{{phonePlaceholder}}" value="{{phone}}" bindinput="onPhoneInput" />
+      </view>
+      <view class="form-item password-item">
+        <input class="input" type="{{passwordVisible ? 'text' : 'password'}}" placeholder="{{passwordPlaceholder}}" value="{{password}}" bindinput="onPasswordInput" />
+        <view class="eye" bindtap="togglePasswordVisible">{{passwordVisible ? eyeHide : eyeShow}}</view>
+      </view>
+      <view wx:if="{{captchaEnabled}}" class="form-item captcha-row">
+        <input class="input" placeholder="{{captchaPlaceholder}}" value="{{captchaInput}}" bindinput="onCaptchaInput" />
+        <view class="captcha-box" bindtap="onCaptchaTap">
+          <image wx:if="{{!captchaError && captchaImg}}" class="captcha-img" src="{{captchaImg}}" />
+          <view wx:else class="captcha-img captcha-placeholder">{{captchaError ? captchaRetry : captchaLoading}}</view>
+        </view>
+      </view>
+      <button class="submit-btn" bindtap="handlePasswordLogin" disabled="{{isLoading}}">{{submitText}}</button>
+    </block>
+
+    <!-- 短信登录表单 -->
+    <block wx:else>
+      <view class="form-item">
+        <input class="input" type="number" maxlength="11" placeholder="{{phonePlaceholder}}" value="{{smsPhone}}" bindinput="onSmsPhoneInput" />
+      </view>
+      <view class="form-item captcha-row">
+        <input class="input" type="number" maxlength="6" placeholder="{{smsCodePlaceholder}}" value="{{smsCode}}" bindinput="onSmsCodeInput" />
+        <button class="sms-btn" bindtap="handleSendSms" disabled="{{smsCountdown > 0 || sendingSms}}">
+          {{smsCountdown > 0 ? smsCountdown + 's' : getCodeText}}
+        </button>
+      </view>
+      <view wx:if="{{captchaEnabled}}" class="form-item captcha-row">
+        <input class="input" placeholder="{{captchaPlaceholder}}" value="{{captchaInput}}" bindinput="onCaptchaInput" />
+        <view class="captcha-box" bindtap="onCaptchaTap">
+          <image wx:if="{{!captchaError && captchaImg}}" class="captcha-img" src="{{captchaImg}}" />
+          <view wx:else class="captcha-img captcha-placeholder">{{captchaError ? captchaRetry : captchaLoading}}</view>
+        </view>
+      </view>
+      <button class="submit-btn" bindtap="handleSmsLogin" disabled="{{isLoading}}">{{submitText}}</button>
+    </block>
+
+    <!-- 微信一键登录 -->
+    <block wx:if="{{showWechatLogin}}">
+      <view class="separator">{{otherMethodsText}}</view>
+      <button class="wechat-btn" bindtap="handleWechatLogin" disabled="{{isLoading}}">{{wechatLoginText}}</button>
+    </block>
+
+    <view class="register-link" bindtap="goRegister">{{registerLink}}</view>
+  </view>
+</scroll-view>

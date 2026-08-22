@@ -1,0 +1,33 @@
+<navigation-bar title="{{navTitle}}" back="{{true}}" color="{{navColor}}" background="{{navBg}}"></navigation-bar>
+<scroll-view class="scrollarea {{themeClass}}" scroll-y type="list">
+  <view class="edit-container">
+
+    <view class="form-item">
+      <text class="field-label">{{nicknameLabel}}</text>
+      <input class="input" type="nickname" placeholder="{{nicknamePlaceholder}}" value="{{nickName}}" bindinput="onNickNameInput" />
+    </view>
+
+    <view class="form-item">
+      <text class="field-label">{{emailLabel}}</text>
+      <input class="input" type="text" placeholder="{{emailPlaceholder}}" value="{{email}}" bindinput="onEmailInput" />
+    </view>
+
+    <view class="form-item">
+      <text class="field-label">{{birthdayLabel}}</text>
+      <picker mode="date" value="{{birthDate}}" bindchange="onBirthDateChange">
+        <view class="picker-value {{birthDate ? '' : 'placeholder'}}">{{birthDate || birthdayPlaceholder}}</view>
+      </picker>
+    </view>
+
+    <view wx:if="{{captchaEnabled}}" class="form-item captcha-row">
+      <input class="input" placeholder="{{captchaPlaceholder}}" value="{{captchaInput}}" bindinput="onCaptchaInput" />
+      <view class="captcha-box" bindtap="onCaptchaTap">
+        <image wx:if="{{!captchaError && captchaImg}}" class="captcha-img" src="{{captchaImg}}" />
+        <view wx:else class="captcha-img captcha-placeholder">{{captchaError ? captchaRetry : captchaLoading}}</view>
+      </view>
+    </view>
+
+    <button class="submit-btn" bindtap="handleSave" disabled="{{isLoading}}">{{saveText}}</button>
+
+  </view>
+</scroll-view>
