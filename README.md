@@ -6,6 +6,7 @@
 [![Skyline](https://img.shields.io/badge/Skyline-Renderer-07C160?logo=wechat)](./miniprogram/app.json)
 [![glass-easel](https://img.shields.io/badge/glass--easel-Component-07C160?logo=wechat)](./miniprogram/app.json)
 [![WeChat](https://img.shields.io/badge/WeChat-Mini%20Program-07C160?logo=wechat)](./project.config.json)
+[![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
 ---
 
@@ -287,4 +288,4 @@ mkdir miniprogram/components/my-component
 
 ## License
 
-Proprietary. All rights reserved.
+本项目基于 [MIT License](./LICENSE) 开源。
